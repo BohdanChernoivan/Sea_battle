@@ -1,7 +1,7 @@
 package com.spring.sea_battle.game.data.elements;
 
 
-public enum ShotsStates {
+public enum ShootStates {
 
     EMPTY(" "),
     WATER("~"),
@@ -10,7 +10,7 @@ public enum ShotsStates {
 
     private String state;
 
-    ShotsStates(String state) {
+    ShootStates(String state) {
         this.state = state;
     }
 
