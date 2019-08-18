@@ -1,6 +1,6 @@
 package com.spring.sea_battle.game.data;
 
-import com.spring.sea_battle.game.data.elements.SpaceStates;
+import com.spring.sea_battle.game.data.elements.ShotsStates;
 
 import java.util.Random;
 
@@ -9,14 +9,14 @@ import static com.spring.sea_battle.game.TestBattle.SIZE_BOARD;
 
 public class CreatorShip {
 
-    private SpaceStates state;
+    private ShotsStates state;
 
 
     public CreatorShip() {
-        this.state = SpaceStates.PART_SHIP;
+        this.state = ShotsStates.PART_SHIP;
     }
 
-    public void createShip(SpaceStates[][] map, int startX, int startY, int lengthShip) {
+    public void createShip(ShotsStates[][] map, int startX, int startY, int lengthShip) {
 
         int equals = direction(map, startX, startY);
 
@@ -43,7 +43,7 @@ public class CreatorShip {
         return new Random().nextInt(SIZE_BOARD);
     }
 
-    private int direction(SpaceStates[][] map, int x, int y) {
+    private int direction(ShotsStates[][] map, int x, int y) {
         if (map.length - x > x) {
             return -1;
         } else if (map.length - y > y) {

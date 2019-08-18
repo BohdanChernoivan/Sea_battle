@@ -1,7 +1,7 @@
 package com.spring.sea_battle.game.data.elements;
 
 
-public enum SpaceStates {
+public enum ShotsStates {
 
     EMPTY(" "),
     WATER("~"),
@@ -10,11 +10,16 @@ public enum SpaceStates {
 
     private String state;
 
-    SpaceStates(String state) {
+    ShotsStates(String state) {
         this.state = state;
     }
 
     public String getState() {
         return state;
+    }
+
+    @Override
+    public String toString() {
+        return getState();
     }
 }

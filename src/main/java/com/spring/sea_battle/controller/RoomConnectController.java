@@ -27,12 +27,16 @@ public class RoomConnectController {
     @PostMapping("sea_battle/room/connect")
     public void connect(@RequestBody ConnectToRoomMessage connect) {
         if(Objects.isNull(connect.getRoomId()) ||
-                Objects.isNull(connect.getPlayerId())) {
+                Objects.isNull(connect.getFirstPlayerId())) {
             throw new IllegalArgumentException("userId and roomId must be not null");
         }
 
-        if (!playerRepository.existsById(connect.getPlayerId())) {
-            throw new IllegalArgumentException("unregistered player");
+        if (!playerRepository.existsById(connect.getFirstPlayerId())) {
+            throw new IllegalArgumentException("unregistered first player");
+        }
+
+        if (!playerRepository.existsById(connect.getSecondPlayerId())) {
+            throw new IllegalArgumentException("unregistered second player");
         }
 
         if(!roomRepository.existsById(connect.getRoomId())) {
@@ -42,3 +46,6 @@ public class RoomConnectController {
 
     }
 }
+
+// c31a8e39-f9e5-444e-989f-57220a4803c8
+// 5e1b5aa6-a5ff-4ec9-bf10-2cd1eace87a5

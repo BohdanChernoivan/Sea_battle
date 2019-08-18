@@ -15,12 +15,12 @@ public class ShotsController {
         this.seaBattle = seaBattle;
     }
 
-    @PostMapping("sea_battle/room/player1/attack")
+    @PostMapping("sea_battle/room/player2/attack")
     public String attack1(@RequestBody Shoot message){
         return seaBattle.playerShoot1.shootControl(seaBattle.creatorMap1.getMap(), message.getRow(), message.getColumn());
     }
 
-    @PostMapping("sea_battle/room/player2/attack")
+    @PostMapping("sea_battle/room/player1/attack")
     public String attack2(@RequestBody Shoot message){
         return seaBattle.playerShoot2.shootControl(seaBattle.creatorMap1.getMap(), message.getRow(), message.getColumn());
     }

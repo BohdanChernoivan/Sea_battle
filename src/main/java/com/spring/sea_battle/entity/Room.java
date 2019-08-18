@@ -19,7 +19,19 @@ public class Room {
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
-    @Column(name = "uuid", unique = true)
+    @Column(name = "room_id", unique = true)
     @org.hibernate.annotations.Type(type="uuid-char")
-    private UUID playerId;
+    private UUID roomId;
+
+//    @Column(name = "player1/player_id", unique = true)
+//    @org.hibernate.annotations.Type(type="uuid-char")
+//    private UUID firstPlayerId;
+//
+//    @Column(name = "player2/player_id", unique = true)
+//    @org.hibernate.annotations.Type(type="uuid-char")
+//    private UUID secondPlayerId;
+//
+//    public Room(UUID roomId) {
+//        this.roomId = roomId;
+//    }
 }

@@ -9,8 +9,12 @@ import java.util.UUID;
 public class ConnectToRoomMessage {
 
     @NotNull
-    private UUID playerId;
+    private UUID roomId;
 
     @NotNull
-    private UUID roomId;
+    private UUID firstPlayerId;
+
+    @NotNull
+    private UUID secondPlayerId;
+
 }

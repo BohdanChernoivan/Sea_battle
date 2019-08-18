@@ -20,7 +20,7 @@ public class Ship {
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
-    @Column(name = "uuid", unique = true)
+    @Column(name = "ship_id", unique = true)
     @org.hibernate.annotations.Type(type="uuid-char")
     private UUID shipId;
 
