@@ -12,9 +12,6 @@ public class ConnectToRoomMessage {
     private UUID roomId;
 
     @NotNull
-    private UUID firstPlayerId;
-
-    @NotNull
-    private UUID secondPlayerId;
+    private UUID playerId;
 
 }

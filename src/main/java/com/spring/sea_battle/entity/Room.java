@@ -23,15 +23,17 @@ public class Room {
     @org.hibernate.annotations.Type(type="uuid-char")
     private UUID roomId;
 
-//    @Column(name = "player1/player_id", unique = true)
-//    @org.hibernate.annotations.Type(type="uuid-char")
-//    private UUID firstPlayerId;
-//
-//    @Column(name = "player2/player_id", unique = true)
-//    @org.hibernate.annotations.Type(type="uuid-char")
-//    private UUID secondPlayerId;
-//
-//    public Room(UUID roomId) {
-//        this.roomId = roomId;
-//    }
+    @Column(name = "player1/player_id", unique = true)
+    @org.hibernate.annotations.Type(type="uuid-char")
+    private UUID firstPlayerId;
+
+    @Column(name = "player2/player_id", unique = true)
+    @org.hibernate.annotations.Type(type="uuid-char")
+    private UUID secondPlayerId;
+
+    public Room(UUID roomId) {
+        this.roomId = roomId;
+    }
+
+
 }
