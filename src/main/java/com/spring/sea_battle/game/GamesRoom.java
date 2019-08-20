@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class GamesRoom {
 
-    public final static int SIZE_MAP = 8;
+    public final static int SIZE_MAP = 10;
 
     public CreatorMap creatorMap1;
     public CreatorShip creatorShip1;

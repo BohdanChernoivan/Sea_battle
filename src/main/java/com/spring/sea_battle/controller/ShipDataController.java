@@ -1,7 +1,9 @@
 package com.spring.sea_battle.controller;
 
+import com.spring.sea_battle.controller.message.AutomaticCreateShip;
 import com.spring.sea_battle.entity.Ship;
 import com.spring.sea_battle.game.GamesRoom;
+import com.spring.sea_battle.game.logic.AutomaticPlaceShip;
 import com.spring.sea_battle.repositories.ShipRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -47,6 +49,16 @@ public class ShipDataController {
     }
 
 
+    @PostMapping("sea_battle/room/player2/random_create_ship")
+    public void create1_random(@RequestBody AutomaticCreateShip createShip) {
+        AutomaticPlaceShip.createAutomaticShip(gamesRoom.creatorMap1.getMap(), createShip.getSize());
+    }
+
+    @PostMapping("sea_battle/room/player2/random_create_ship")
+    public void create2_random(@RequestBody AutomaticCreateShip createShip) {
+        AutomaticPlaceShip.createAutomaticShip(gamesRoom.creatorMap2.getMap(), createShip.getSize());
+    }
+
     class BoardViewPlayer1 {
         public final String[] view = gamesRoom.creatorMap1.getMapViewString();
     }
@@ -54,6 +66,7 @@ public class ShipDataController {
     class BoardViewPlayer2 {
         public final String[] view = gamesRoom.creatorMap2.getMapViewString();
     }
+
 
 }
 

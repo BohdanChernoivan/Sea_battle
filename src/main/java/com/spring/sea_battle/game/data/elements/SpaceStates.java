@@ -1,16 +1,16 @@
 package com.spring.sea_battle.game.data.elements;
 
 
-public enum ShootStates {
+public enum SpaceStates {
 
-    EMPTY(" "),
-    WATER("~"),
-    PART_SHIP("*"),
+    EMPTY("~"),
+    WATER(" "),
+    PART_SHIP("="),
     DESTROYED("#");
 
     private String state;
 
-    ShootStates(String state) {
+    SpaceStates(String state) {
         this.state = state;
     }
 

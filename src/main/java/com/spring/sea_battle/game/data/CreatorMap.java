@@ -1,19 +1,19 @@
 package com.spring.sea_battle.game.data;
 
-import com.spring.sea_battle.game.data.elements.ShootStates;
+import com.spring.sea_battle.game.data.elements.SpaceStates;
 
 import java.util.Arrays;
 
 public class CreatorMap {
 
-    private ShootStates[][] map;
+    private SpaceStates[][] map;
 
     public CreatorMap(int sizeBoard) {
-        map = new ShootStates[sizeBoard][sizeBoard];
+        map = new SpaceStates[sizeBoard][sizeBoard];
         generation();
     }
 
-    public ShootStates[][] getMap() {
+    public SpaceStates[][] getMap() {
         return map;
     }
 
@@ -27,11 +27,18 @@ public class CreatorMap {
             return mapView;
     }
 
+    public void getMapSOUT() {
+
+        for (int i = 0; i < map.length; i++) {
+            System.out.println(Arrays.toString(map[i]));
+        }
+    }
+
 
     private void generation() {
         for (int i = 0; i < map.length; i++) {
             for (int j = 0; j < map[i].length; j++) {
-                map[i][j] = ShootStates.WATER;
+                map[i][j] = SpaceStates.WATER;
             }
         }
     }
