@@ -49,7 +49,7 @@ public class ShipDataController {
     }
 
 
-    @PostMapping("sea_battle/room/player2/random_create_ship")
+    @PostMapping("sea_battle/room/player1/random_create_ship")
     public void create1_random(@RequestBody AutomaticCreateShip createShip) {
         AutomaticPlaceShip.createAutomaticShip(gamesRoom.creatorMap1.getMap(), createShip.getSize());
     }
@@ -58,6 +58,7 @@ public class ShipDataController {
     public void create2_random(@RequestBody AutomaticCreateShip createShip) {
         AutomaticPlaceShip.createAutomaticShip(gamesRoom.creatorMap2.getMap(), createShip.getSize());
     }
+
 
     class BoardViewPlayer1 {
         public final String[] view = gamesRoom.creatorMap1.getMapViewString();

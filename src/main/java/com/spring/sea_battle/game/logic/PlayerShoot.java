@@ -8,12 +8,14 @@ import com.spring.sea_battle.game.data.elements.SpaceStates;
 
 public class PlayerShoot {
 
+    public String moveOut = "Move сame out of the map";
+    public String wentHere = "You went here";
 
     public String shootControl(SpaceStates[][] map, int x, int y) {
         if (map.length < x || map.length < y) {
-            return "Move сame out of the map";
+            return moveOut;
         } else if (map[x][y].equals(SpaceStates.DESTROYED) || map[x][y].equals(SpaceStates.EMPTY)) {
-            return "You went here";
+            return wentHere;
         } else {
             if (map[x][y].getState().equals(SpaceStates.WATER.getState())) {
                 map[x][y] = SpaceStates.EMPTY;

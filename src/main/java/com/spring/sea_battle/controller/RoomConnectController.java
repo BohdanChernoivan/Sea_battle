@@ -10,13 +10,11 @@ import com.spring.sea_battle.game.logic.PlayerShoot;
 import com.spring.sea_battle.repositories.PlayerRepository;
 import com.spring.sea_battle.repositories.RoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Objects;
-import java.util.UUID;
 
 import static com.spring.sea_battle.game.GamesRoom.SIZE_MAP;
 
