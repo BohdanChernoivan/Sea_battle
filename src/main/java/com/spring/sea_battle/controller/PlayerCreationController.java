@@ -1,7 +1,6 @@
 package com.spring.sea_battle.controller;
 
 import com.spring.sea_battle.entity.Player;
-import com.spring.sea_battle.entity.Shoot;
 import com.spring.sea_battle.repositories.PlayerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,12 +11,12 @@ import java.util.UUID;
 
 
 @RestController
-public class UserCreationController {
+public class PlayerCreationController {
 
     private final PlayerRepository playerRepository;
 
     @Autowired
-    public UserCreationController(PlayerRepository playerRepository) {
+    public PlayerCreationController(PlayerRepository playerRepository) {
         this.playerRepository = playerRepository;
     }
 

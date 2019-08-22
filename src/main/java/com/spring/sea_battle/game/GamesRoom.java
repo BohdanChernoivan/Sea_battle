@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 public class GamesRoom {
 
     public final static int SIZE_MAP = 10;
+    public boolean movePlayer = true;
 
     public CreatorMap creatorMap1;
     public CreatorShip creatorShip1;

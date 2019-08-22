@@ -12,6 +12,7 @@ import com.spring.sea_battle.repositories.RoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Objects;
@@ -19,6 +20,7 @@ import java.util.Objects;
 import static com.spring.sea_battle.game.GamesRoom.SIZE_MAP;
 
 @RestController
+@RequestMapping("sea_battle/room")
 public class RoomConnectController {
 
     private final RoomRepository roomRepository;
@@ -34,7 +36,7 @@ public class RoomConnectController {
     }
 
 
-    @PostMapping("sea_battle/room/connect")
+    @PostMapping("/connect")
     public void connect(@RequestBody ConnectToRoomMessage connect) {
         if(Objects.isNull(connect.getRoomId()) ||
                 Objects.isNull(connect.getPlayerId())) {
@@ -58,7 +60,7 @@ public class RoomConnectController {
 
     }
 
-    @PostMapping("sea_battle/room/join")
+    @PostMapping("/join")
     public void joinRoom(@RequestBody ConnectToRoomMessage connect) {
         if(Objects.isNull(connect.getRoomId()) ||
                 Objects.isNull(connect.getPlayerId())) {

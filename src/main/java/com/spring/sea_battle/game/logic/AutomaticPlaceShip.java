@@ -1,13 +1,18 @@
 package com.spring.sea_battle.game.logic;
 
 import com.spring.sea_battle.game.data.elements.SpaceStates;
+import lombok.Getter;
 
 import java.util.Random;
 
 import static com.spring.sea_battle.game.TestBattle.SIZE_BOARD;
 
+@Getter
 public class AutomaticPlaceShip {
 
+    protected static int lengthShip = 0;
+    protected static int rowShip = 0;
+    protected static int columnShip = 0;
 
     public static void createAutomaticShip(SpaceStates[][] map, int size) {
 
@@ -15,7 +20,6 @@ public class AutomaticPlaceShip {
         int column = rndLocationInBoard();
 
         int equals = checkLocation(map, row, column, size);
-
 
         if (row < map.length || column < map.length) {
 
@@ -64,6 +68,9 @@ public class AutomaticPlaceShip {
                     } else maxSize = 0;
 
                     if (maxSize == size) {
+                        lengthShip = size;
+                        startCreate = rowShip;
+                        endCreate = columnShip;
                         return 1;
                     }
                 }
@@ -78,6 +85,9 @@ public class AutomaticPlaceShip {
                     } else maxSize = 0;
 
                     if (maxSize == size) {
+                        lengthShip = size;
+                        startCreate = rowShip;
+                        endCreate = columnShip;
                         return 2;
                     }
                 }
@@ -92,6 +102,9 @@ public class AutomaticPlaceShip {
                     } else maxSize = 0;
 
                     if (maxSize == size) {
+                        lengthShip = size;
+                        startCreate = rowShip;
+                        endCreate = columnShip;
                         return 3;
                     }
                 }
@@ -106,6 +119,9 @@ public class AutomaticPlaceShip {
                     } else maxSize = 0;
 
                     if(maxSize == size) {
+                        lengthShip = size;
+                        startCreate = rowShip;
+                        endCreate = columnShip;
                         return 4;
                     }
                 }

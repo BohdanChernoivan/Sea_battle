@@ -40,6 +40,7 @@ public class TestBattle {
         }
 
         creatorMap.getMapSOUT();
+
     }
 
 }
