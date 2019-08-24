@@ -13,6 +13,8 @@ import com.spring.sea_battle.repositories.ShootRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.UUID;
+
 @RestController
 @RequestMapping("sea_battle/room/player2")
 public class MapPlayer2Controller {
@@ -54,27 +56,39 @@ public class MapPlayer2Controller {
     @PostMapping("/create_ship/random")
     public void createRandomShip(@RequestBody AutomaticCreateShip createShip) {
         if (playerRepository.existsById(createShip.getPlayerId())) {
-            AutomaticPlaceShip.createAutomaticShip(gamesRoom.creatorMap2.getMap(), CreatorShip.HUGE_SHIP);
-            AutomaticPlaceShip.createAutomaticShip(gamesRoom.creatorMap2.getMap(), CreatorShip.BIG_SHIP);
-            AutomaticPlaceShip.createAutomaticShip(gamesRoom.creatorMap2.getMap(), CreatorShip.BIG_SHIP);
-            AutomaticPlaceShip.createAutomaticShip(gamesRoom.creatorMap2.getMap(), CreatorShip.AVERAGE_SHIP);
-            AutomaticPlaceShip.createAutomaticShip(gamesRoom.creatorMap2.getMap(), CreatorShip.AVERAGE_SHIP);
-            AutomaticPlaceShip.createAutomaticShip(gamesRoom.creatorMap2.getMap(), CreatorShip.AVERAGE_SHIP);
-            AutomaticPlaceShip.createAutomaticShip(gamesRoom.creatorMap2.getMap(), CreatorShip.SMALL_SHIP);
-            AutomaticPlaceShip.createAutomaticShip(gamesRoom.creatorMap2.getMap(), CreatorShip.SMALL_SHIP);
-            AutomaticPlaceShip.createAutomaticShip(gamesRoom.creatorMap2.getMap(), CreatorShip.SMALL_SHIP);
-            AutomaticPlaceShip.createAutomaticShip(gamesRoom.creatorMap2.getMap(), CreatorShip.SMALL_SHIP);
+            addShipInRepository(createShip.getPlayerId(), CreatorShip.HUGE_SHIP);
+            addShipInRepository(createShip.getPlayerId(), CreatorShip.BIG_SHIP);
+            addShipInRepository(createShip.getPlayerId(), CreatorShip.BIG_SHIP);
+            addShipInRepository(createShip.getPlayerId(), CreatorShip.AVERAGE_SHIP);
+            addShipInRepository(createShip.getPlayerId(), CreatorShip.AVERAGE_SHIP);
+            addShipInRepository(createShip.getPlayerId(), CreatorShip.AVERAGE_SHIP);
+            addShipInRepository(createShip.getPlayerId(), CreatorShip.SMALL_SHIP);
+            addShipInRepository(createShip.getPlayerId(), CreatorShip.SMALL_SHIP);
+            addShipInRepository(createShip.getPlayerId(), CreatorShip.SMALL_SHIP);
+            addShipInRepository(createShip.getPlayerId(), CreatorShip.SMALL_SHIP);
         } else {
             throw new IllegalArgumentException("unregistered player");
         }
     }
 
-    @GetMapping("view_board")
+    @GetMapping("/view_board")
     public PlayerViewMap viewBoard() {
         return new PlayerViewMap();
     }
 
     class PlayerViewMap {
         public final String[] view = gamesRoom.creatorMap2.getMapViewString();
+    }
+
+    private void addShipInRepository(UUID id, int size) {
+        Shoot shoot = new Shoot();
+        AutomaticPlaceShip placeShip = new AutomaticPlaceShip();
+        placeShip.createAutomaticShip(gamesRoom.creatorMap2.getMap(), size);
+
+        shoot.setPlayerId(id);
+        shoot.setColumn(placeShip.getColumnShip());
+        shoot.setRow(placeShip.getRowShip());
+
+        shootRepository.save(shoot);
     }
 }

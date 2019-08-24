@@ -10,11 +10,11 @@ import static com.spring.sea_battle.game.TestBattle.SIZE_BOARD;
 @Getter
 public class AutomaticPlaceShip {
 
-    protected static int lengthShip = 0;
-    protected static int rowShip = 0;
-    protected static int columnShip = 0;
+    private int lengthShip = 0;
+    private int rowShip = 0;
+    private int columnShip = 0;
 
-    public static void createAutomaticShip(SpaceStates[][] map, int size) {
+    public void createAutomaticShip(SpaceStates[][] map, int size) {
 
         int row = rndLocationInBoard();
         int column = rndLocationInBoard();
@@ -52,11 +52,11 @@ public class AutomaticPlaceShip {
         } else createAutomaticShip(map, size);
     }
 
-    public static int rndLocationInBoard() {
+    public int rndLocationInBoard() {
         return new Random().nextInt(SIZE_BOARD);
     }
 
-    private static int checkLocation(SpaceStates[][] map, int startCreate, int endCreate, int size) {
+    private int checkLocation(SpaceStates[][] map, int startCreate, int endCreate, int size) {
 
         int maxSize = 0;
 
@@ -69,8 +69,8 @@ public class AutomaticPlaceShip {
 
                     if (maxSize == size) {
                         lengthShip = size;
-                        startCreate = rowShip;
-                        endCreate = columnShip;
+                        rowShip = startCreate;
+                        columnShip = endCreate;
                         return 1;
                     }
                 }
@@ -86,8 +86,8 @@ public class AutomaticPlaceShip {
 
                     if (maxSize == size) {
                         lengthShip = size;
-                        startCreate = rowShip;
-                        endCreate = columnShip;
+                        rowShip = startCreate;
+                        columnShip = endCreate;
                         return 2;
                     }
                 }
@@ -103,8 +103,8 @@ public class AutomaticPlaceShip {
 
                     if (maxSize == size) {
                         lengthShip = size;
-                        startCreate = rowShip;
-                        endCreate = columnShip;
+                        rowShip = startCreate;
+                        columnShip = endCreate;
                         return 3;
                     }
                 }
@@ -120,8 +120,8 @@ public class AutomaticPlaceShip {
 
                     if(maxSize == size) {
                         lengthShip = size;
-                        startCreate = rowShip;
-                        endCreate = columnShip;
+                        rowShip = startCreate;
+                        columnShip = endCreate;
                         return 4;
                     }
                 }

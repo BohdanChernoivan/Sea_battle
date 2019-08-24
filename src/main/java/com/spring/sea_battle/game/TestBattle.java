@@ -16,16 +16,17 @@ public class TestBattle {
         CreatorMap creatorMap = new CreatorMap(SIZE_BOARD);
 
 //        CreatorShip creatorShip = new CreatorShip();
-        AutomaticPlaceShip.createAutomaticShip(creatorMap.getMap(), CreatorShip.HUGE_SHIP);
-        AutomaticPlaceShip.createAutomaticShip(creatorMap.getMap(), CreatorShip.BIG_SHIP);
-        AutomaticPlaceShip.createAutomaticShip(creatorMap.getMap(), CreatorShip.BIG_SHIP);
-        AutomaticPlaceShip.createAutomaticShip(creatorMap.getMap(), CreatorShip.AVERAGE_SHIP);
-        AutomaticPlaceShip.createAutomaticShip(creatorMap.getMap(), CreatorShip.AVERAGE_SHIP);
-        AutomaticPlaceShip.createAutomaticShip(creatorMap.getMap(), CreatorShip.AVERAGE_SHIP);
-        AutomaticPlaceShip.createAutomaticShip(creatorMap.getMap(), CreatorShip.SMALL_SHIP);
-        AutomaticPlaceShip.createAutomaticShip(creatorMap.getMap(), CreatorShip.SMALL_SHIP);
-        AutomaticPlaceShip.createAutomaticShip(creatorMap.getMap(), CreatorShip.SMALL_SHIP);
-        AutomaticPlaceShip.createAutomaticShip(creatorMap.getMap(), CreatorShip.SMALL_SHIP);
+        AutomaticPlaceShip placeShip = new AutomaticPlaceShip();
+        placeShip.createAutomaticShip(creatorMap.getMap(), CreatorShip.HUGE_SHIP);
+        placeShip.createAutomaticShip(creatorMap.getMap(), CreatorShip.BIG_SHIP);
+        placeShip.createAutomaticShip(creatorMap.getMap(), CreatorShip.BIG_SHIP);
+        placeShip.createAutomaticShip(creatorMap.getMap(), CreatorShip.AVERAGE_SHIP);
+        placeShip.createAutomaticShip(creatorMap.getMap(), CreatorShip.AVERAGE_SHIP);
+        placeShip.createAutomaticShip(creatorMap.getMap(), CreatorShip.AVERAGE_SHIP);
+        placeShip.createAutomaticShip(creatorMap.getMap(), CreatorShip.SMALL_SHIP);
+        placeShip.createAutomaticShip(creatorMap.getMap(), CreatorShip.SMALL_SHIP);
+        placeShip.createAutomaticShip(creatorMap.getMap(), CreatorShip.SMALL_SHIP);
+        placeShip.createAutomaticShip(creatorMap.getMap(), CreatorShip.SMALL_SHIP);
 
         creatorMap.getMapSOUT();
 
@@ -36,7 +37,7 @@ public class TestBattle {
                 break;
             }
             System.out.println(i);
-            System.out.println(playerShoot.shootControl(creatorMap.getMap(), AutomaticPlaceShip.rndLocationInBoard(),AutomaticPlaceShip.rndLocationInBoard()));
+            System.out.println(playerShoot.shootControl(creatorMap.getMap(), placeShip.rndLocationInBoard(),placeShip.rndLocationInBoard()));
         }
 
         creatorMap.getMapSOUT();
