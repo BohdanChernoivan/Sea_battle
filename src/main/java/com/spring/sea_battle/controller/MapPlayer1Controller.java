@@ -23,7 +23,6 @@ public class MapPlayer1Controller {
     private final ShootRepository shootRepository;
     private final ShipRepository shipRepository;
     private final GamesRoom gamesRoom;
-    private UUID playerId;
 
 
     @Autowired
@@ -82,14 +81,15 @@ public class MapPlayer1Controller {
     }
 
     private void addShipInRepository(UUID id, int size) {
-        Shoot shoot = new Shoot();
+        Ship ship = new Ship();
         AutomaticPlaceShip placeShip = new AutomaticPlaceShip();
         placeShip.createAutomaticShip(gamesRoom.creatorMap1.getMap(), size);
 
-        shoot.setPlayerId(id);
-        shoot.setColumn(placeShip.getColumnShip());
-        shoot.setRow(placeShip.getRowShip());
+        ship.setPlayerId(id);
+        ship.setColumn(placeShip.getColumnShip());
+        ship.setRow(placeShip.getRowShip());
+        ship.setLength(placeShip.getLengthShip());
 
-        shootRepository.save(shoot);
+        shipRepository.save(ship);
     }
 }

@@ -18,11 +18,10 @@ import java.util.UUID;
 public class Ship {
 
     @Id
-    @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
-    @Column(name = "ship_id", unique = true)
+    @Column(name = "player_id")
     @org.hibernate.annotations.Type(type="uuid-char")
-    private UUID shipId;
+    private UUID playerId;
 
     @Column(name = "row")
     @NotNull

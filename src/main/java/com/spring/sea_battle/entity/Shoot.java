@@ -18,9 +18,8 @@ import java.util.UUID;
 public class Shoot {
 
     @Id
-   // @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
-    @Column(name = "player_id", unique = true)
+    @Column(name = "player_id")
     @org.hibernate.annotations.Type(type="uuid-char")
     private UUID playerId;
 

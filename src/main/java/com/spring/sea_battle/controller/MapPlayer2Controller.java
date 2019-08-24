@@ -81,14 +81,15 @@ public class MapPlayer2Controller {
     }
 
     private void addShipInRepository(UUID id, int size) {
-        Shoot shoot = new Shoot();
+        Ship ship = new Ship();
         AutomaticPlaceShip placeShip = new AutomaticPlaceShip();
         placeShip.createAutomaticShip(gamesRoom.creatorMap2.getMap(), size);
 
-        shoot.setPlayerId(id);
-        shoot.setColumn(placeShip.getColumnShip());
-        shoot.setRow(placeShip.getRowShip());
+        ship.setPlayerId(id);
+        ship.setColumn(placeShip.getColumnShip());
+        ship.setRow(placeShip.getRowShip());
+        ship.setLength(placeShip.getLengthShip());
 
-        shootRepository.save(shoot);
+        shipRepository.save(ship);
     }
 }

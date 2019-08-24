@@ -21,7 +21,7 @@ public class PlayerCreationController {
     }
 
     @PostMapping("sea_battle/room/create_player")
-    public void create1(@RequestBody Player player){
+    public void create(@RequestBody Player player){
         playerRepository.save(player);
     }
 
